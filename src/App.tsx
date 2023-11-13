@@ -20,6 +20,7 @@ const App = () => {
         onChange={e => setData(e.target.value)}
         className='w-full h-screen resize-none outline-none justify-start text-left items-start p-16 text-white bg-darkSecondary'
         value={data!}
+        autoCorrect='false'
       />
       <button
         onClick={() => {

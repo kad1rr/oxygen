@@ -9,8 +9,8 @@ export default {
         primary: '#312EB5',
       },
       fontFamily: {
-        primary: 'Kaushan Script'
-      }
+        primary: 'Kaushan Script',
+      },
     },
   },
   plugins: [],

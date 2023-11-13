@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { AlignRight, Delete, Plus } from 'react-feather'
+import { Delete, Plus } from 'react-feather'
 import Bold from './Bold'
 import Button from './Button'
 import Row from './Row'
@@ -10,12 +10,24 @@ const Leftbar = () => {
 
   useEffect(() => {
     localStorage.setItem('activeTab', activeTab)
+    localStorage.setItem(
+      'welcome',
+      `Welcome to Oxygen Notes!
+
+Breathe life into your thoughts with Oxygen, your go-to companion for seamless note-taking. We are thrilled to have you on board, ready to embark on a journey of organized and efficient note management.
+    
+Ready to elevate your note-taking game? Let's get started!
+    
+Thank you for choosing Oxygen. Happy note-taking!
+
+https://github.com/kad1rr/oxygen`,
+    )
   }, [activeTab])
 
   return (
     <div
       id='leftbar'
-      className='transition-all w-[300px] bg-darkPrimary min-h-screen text-white flex flex-col p-8 sticky left-0 top-0 justify-start gap-y-12'
+      className='transition-all w-[300px] bg-darkPrimary min-h-full text-white flex flex-col p-8 sticky left-0 top-0 justify-start gap-y-12'
     >
       <div className='w-auto h-[50px] flex flex-row gap-x-4 items-center justify-between'>
         <img
@@ -25,18 +37,6 @@ const Leftbar = () => {
           height={50}
         />
         <p className='font-primary text-3xl'>Oxygen</p>
-        <AlignRight
-          id='left-button'
-          className='text-white mt-2 z-[999] bg-darkPrimary p-2 w-[35px] h-[35px] rounded-lg cursor-pointer'
-          onClick={() => {
-            const leftbar = document.getElementById('leftbar')
-            const button = document.getElementById('left-button')
-            leftbar?.classList.toggle('w-[300px]')
-            leftbar?.classList.toggle('w-[50px]')
-            button?.classList.toggle('absolute')
-            button?.classList.toggle('left-[100px]')
-          }}
-        />
       </div>
       <div className='flex flex-row justify-between items-center overflow-x-hidden'>
         <Button
@@ -89,7 +89,7 @@ const Leftbar = () => {
             </Row>
           ) : (
             ''
-          )
+          ),
         )}
       </div>
     </div>
